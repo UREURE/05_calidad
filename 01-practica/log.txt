@@ -1,0 +1,500 @@
+NAME              LOCATION        MASTER_VERSION  MASTER_IP   MACHINE_TYPE   NODE_VERSION   NUM_NODES  STATUS
+practica-calidad  europe-west1-b  1.13.10-gke.0   34.77.38.1  n1-standard-2  1.13.10-gke.0  3          RUNNING
+Helm v2.14.3 is already v2.14.3
+Run 'helm init' to configure helm.
+serviceaccount/tiller created
+clusterrolebinding.rbac.authorization.k8s.io/tiller created
+$HELM_HOME has been configured at /home/devops/.helm.
+
+Tiller (the Helm server-side component) has been installed into your Kubernetes Cluster.
+
+Please note: by default, Tiller is deployed with an insecure 'allow unauthenticated users' policy.
+To prevent this, run `helm init` with the --tiller-tls-verify flag.
+For more information on securing your installation see: https://docs.helm.sh/using_helm/#securing-your-helm-installation
+clusterrolebinding.rbac.authorization.k8s.io/cluster-admin-binding created
+namespace/ingress-nginx created
+configmap/nginx-configuration created
+configmap/tcp-services created
+configmap/udp-services created
+serviceaccount/nginx-ingress-serviceaccount created
+clusterrole.rbac.authorization.k8s.io/nginx-ingress-clusterrole created
+role.rbac.authorization.k8s.io/nginx-ingress-role created
+rolebinding.rbac.authorization.k8s.io/nginx-ingress-role-nisa-binding created
+clusterrolebinding.rbac.authorization.k8s.io/nginx-ingress-clusterrole-nisa-binding created
+deployment.apps/nginx-ingress-controller created
+service/ingress-nginx created
+Esperando 10 segundos para obtener IP del balanceador...
+Esperando 10 segundos para obtener IP del balanceador...
+Esperando 10 segundos para obtener IP del balanceador...
+Esperando 10 segundos para obtener IP del balanceador...
+Esperando 10 segundos para obtener IP del balanceador...
+Esperando 10 segundos para obtener IP del balanceador...
+Obtenida IP del balanceador: 35.195.3.143
+NAME:   prometheus
+LAST DEPLOYED: Thu Oct 24 16:21:53 2019
+NAMESPACE: monitoring
+STATUS: DEPLOYED
+
+RESOURCES:
+==> v1/Alertmanager
+NAME                                     AGE
+prometheus-prometheus-oper-alertmanager  5s
+
+==> v1/ClusterRole
+NAME                                       AGE
+prometheus-grafana-clusterrole             5s
+prometheus-prometheus-oper-alertmanager    5s
+prometheus-prometheus-oper-operator        5s
+prometheus-prometheus-oper-operator-psp    5s
+prometheus-prometheus-oper-prometheus      5s
+prometheus-prometheus-oper-prometheus-psp  5s
+psp-prometheus-kube-state-metrics          5s
+
+==> v1/ClusterRoleBinding
+NAME                                       AGE
+prometheus-grafana-clusterrolebinding      5s
+prometheus-prometheus-oper-alertmanager    5s
+prometheus-prometheus-oper-operator        5s
+prometheus-prometheus-oper-operator-psp    5s
+prometheus-prometheus-oper-prometheus      5s
+prometheus-prometheus-oper-prometheus-psp  5s
+psp-prometheus-kube-state-metrics          5s
+
+==> v1/ConfigMap
+NAME                                                          DATA  AGE
+prometheus-grafana                                            1     5s
+prometheus-grafana-config-dashboards                          1     5s
+prometheus-grafana-test                                       1     5s
+prometheus-prometheus-oper-etcd                               1     5s
+prometheus-prometheus-oper-grafana-datasource                 1     5s
+prometheus-prometheus-oper-k8s-cluster-rsrc-use               1     5s
+prometheus-prometheus-oper-k8s-coredns                        1     5s
+prometheus-prometheus-oper-k8s-node-rsrc-use                  1     5s
+prometheus-prometheus-oper-k8s-resources-cluster              1     5s
+prometheus-prometheus-oper-k8s-resources-namespace            1     5s
+prometheus-prometheus-oper-k8s-resources-pod                  1     5s
+prometheus-prometheus-oper-k8s-resources-workload             1     5s
+prometheus-prometheus-oper-k8s-resources-workloads-namespace  1     5s
+prometheus-prometheus-oper-nodes                              1     5s
+prometheus-prometheus-oper-persistentvolumesusage             1     5s
+prometheus-prometheus-oper-pods                               1     5s
+prometheus-prometheus-oper-statefulset                        1     5s
+
+==> v1/Deployment
+NAME                                 READY  UP-TO-DATE  AVAILABLE  AGE
+prometheus-kube-state-metrics        0/1    1           0          5s
+prometheus-prometheus-oper-operator  0/1    1           0          5s
+
+==> v1/Pod(related)
+NAME                                                 READY  STATUS             RESTARTS  AGE
+prometheus-grafana-5bc9cfd997-7mjwl                  0/2    Init:0/1           0         4s
+prometheus-kube-state-metrics-7fbb4697c-9xnwm        0/1    ContainerCreating  0         4s
+prometheus-prometheus-node-exporter-crtcm            0/1    Running            0         4s
+prometheus-prometheus-node-exporter-dkss2            0/1    Running            0         5s
+prometheus-prometheus-node-exporter-wv9nj            0/1    ContainerCreating  0         4s
+prometheus-prometheus-oper-operator-b8dbf8dfb-bqv67  0/1    ContainerCreating  0         4s
+
+==> v1/Prometheus
+NAME                                   AGE
+prometheus-prometheus-oper-prometheus  4s
+
+==> v1/PrometheusRule
+NAME                                                             AGE
+prometheus-prometheus-oper-alertmanager.rules                    4s
+prometheus-prometheus-oper-etcd                                  4s
+prometheus-prometheus-oper-general.rules                         4s
+prometheus-prometheus-oper-k8s.rules                             4s
+prometheus-prometheus-oper-kube-apiserver.rules                  4s
+prometheus-prometheus-oper-kube-prometheus-node-alerting.rules   4s
+prometheus-prometheus-oper-kube-prometheus-node-recording.rules  4s
+prometheus-prometheus-oper-kube-scheduler.rules                  4s
+prometheus-prometheus-oper-kubernetes-absent                     4s
+prometheus-prometheus-oper-kubernetes-apps                       4s
+prometheus-prometheus-oper-kubernetes-resources                  4s
+prometheus-prometheus-oper-kubernetes-storage                    4s
+prometheus-prometheus-oper-kubernetes-system                     4s
+prometheus-prometheus-oper-node-network                          4s
+prometheus-prometheus-oper-node-time                             4s
+prometheus-prometheus-oper-node.rules                            3s
+prometheus-prometheus-oper-prometheus-operator                   3s
+prometheus-prometheus-oper-prometheus.rules                      3s
+
+==> v1/Role
+NAME                                          AGE
+prometheus-grafana-test                       5s
+prometheus-prometheus-oper-prometheus-config  5s
+
+==> v1/RoleBinding
+NAME                                          AGE
+prometheus-grafana-test                       5s
+prometheus-prometheus-oper-prometheus-config  5s
+
+==> v1/Secret
+NAME                                                  TYPE    DATA  AGE
+alertmanager-prometheus-prometheus-oper-alertmanager  Opaque  1     5s
+prometheus-grafana                                    Opaque  3     5s
+
+==> v1/Service
+NAME                                                TYPE       CLUSTER-IP     EXTERNAL-IP  PORT(S)    AGE
+prometheus-grafana                                  ClusterIP  10.47.242.96   <none>       80/TCP     5s
+prometheus-kube-state-metrics                       ClusterIP  10.47.247.73   <none>       8080/TCP   5s
+prometheus-prometheus-node-exporter                 ClusterIP  10.47.250.197  <none>       9100/TCP   5s
+prometheus-prometheus-oper-alertmanager             ClusterIP  10.47.241.229  <none>       9093/TCP   5s
+prometheus-prometheus-oper-coredns                  ClusterIP  None           <none>       9153/TCP   5s
+prometheus-prometheus-oper-kube-controller-manager  ClusterIP  None           <none>       10252/TCP  5s
+prometheus-prometheus-oper-kube-etcd                ClusterIP  None           <none>       2379/TCP   5s
+prometheus-prometheus-oper-kube-scheduler           ClusterIP  None           <none>       10251/TCP  5s
+prometheus-prometheus-oper-operator                 ClusterIP  10.47.251.29   <none>       8080/TCP   5s
+prometheus-prometheus-oper-prometheus               ClusterIP  10.47.241.245  <none>       9090/TCP   5s
+
+==> v1/ServiceAccount
+NAME                                     SECRETS  AGE
+prometheus-grafana                       1        5s
+prometheus-grafana-test                  1        5s
+prometheus-kube-state-metrics            1        5s
+prometheus-prometheus-node-exporter      1        5s
+prometheus-prometheus-oper-alertmanager  1        5s
+prometheus-prometheus-oper-operator      1        5s
+prometheus-prometheus-oper-prometheus    1        5s
+
+==> v1/ServiceMonitor
+NAME                                                AGE
+prometheus-prometheus-oper-alertmanager             3s
+prometheus-prometheus-oper-apiserver                3s
+prometheus-prometheus-oper-coredns                  3s
+prometheus-prometheus-oper-grafana                  3s
+prometheus-prometheus-oper-kube-controller-manager  3s
+prometheus-prometheus-oper-kube-etcd                3s
+prometheus-prometheus-oper-kube-scheduler           3s
+prometheus-prometheus-oper-kube-state-metrics       3s
+prometheus-prometheus-oper-kubelet                  3s
+prometheus-prometheus-oper-node-exporter            3s
+prometheus-prometheus-oper-operator                 3s
+prometheus-prometheus-oper-prometheus               3s
+
+==> v1beta1/ClusterRole
+NAME                                     AGE
+prometheus-kube-state-metrics            5s
+psp-prometheus-prometheus-node-exporter  5s
+
+==> v1beta1/ClusterRoleBinding
+NAME                                     AGE
+prometheus-kube-state-metrics            5s
+psp-prometheus-prometheus-node-exporter  5s
+
+==> v1beta1/DaemonSet
+NAME                                 DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE SELECTOR  AGE
+prometheus-prometheus-node-exporter  3        3        0      3           0          <none>         5s
+
+==> v1beta1/PodSecurityPolicy
+NAME                                     PRIV   CAPS      SELINUX           RUNASUSER  FSGROUP    SUPGROUP  READONLYROOTFS  VOLUMES
+prometheus-grafana                       false  RunAsAny  RunAsAny          RunAsAny   RunAsAny   false     configMap,emptyDir,projected,secret,downwardAPI,persistentVolumeClaim
+prometheus-grafana-test                  false  RunAsAny  RunAsAny          RunAsAny   RunAsAny   false     configMap,downwardAPI,emptyDir,projected,secret
+prometheus-kube-state-metrics            false  RunAsAny  MustRunAsNonRoot  MustRunAs  MustRunAs  false     secret
+prometheus-prometheus-node-exporter      false  RunAsAny  RunAsAny          MustRunAs  MustRunAs  false     configMap,emptyDir,projected,secret,downwardAPI,persistentVolumeClaim,hostPath
+prometheus-prometheus-oper-alertmanager  false  RunAsAny  RunAsAny          MustRunAs  MustRunAs  false     configMap,emptyDir,projected,secret,downwardAPI,persistentVolumeClaim
+prometheus-prometheus-oper-operator      false  RunAsAny  RunAsAny          MustRunAs  MustRunAs  false     configMap,emptyDir,projected,secret,downwardAPI,persistentVolumeClaim
+prometheus-prometheus-oper-prometheus    false  RunAsAny  RunAsAny          MustRunAs  MustRunAs  false     configMap,emptyDir,projected,secret,downwardAPI,persistentVolumeClaim
+
+==> v1beta1/Role
+NAME                AGE
+prometheus-grafana  5s
+
+==> v1beta1/RoleBinding
+NAME                AGE
+prometheus-grafana  5s
+
+==> v1beta2/Deployment
+NAME                READY  UP-TO-DATE  AVAILABLE  AGE
+prometheus-grafana  0/1    1           0          5s
+
+
+NOTES:
+The Prometheus Operator has been installed. Check its status by running:
+  kubectl --namespace monitoring get pods -l "release=prometheus"
+
+Visit https://github.com/coreos/prometheus-operator for instructions on how
+to create & configure Alertmanager and Prometheus instances using the Operator.
+ingress.extensions/monitoring-ingress created
+Downloading istio-1.3.3 from https://github.com/istio/istio/releases/download/1.3.3/istio-1.3.3-linux.tar.gz ...Istio 1.3.3 Download Complete!
+
+Istio has been successfully downloaded into the istio-1.3.3 folder on your system.
+
+Next Steps:
+See https://istio.io/docs/setup/kubernetes/install/ to add Istio to your Kubernetes cluster.
+
+To configure the istioctl client tool for your workstation,
+add the /home/devops/calidad/01-practica/istio/istio-1.3.3/bin directory to your environment path variable with:
+	 export PATH="$PATH:/home/devops/calidad/01-practica/istio/istio-1.3.3/bin"
+
+Begin the Istio pre-installation verification check by running:
+	 istioctl verify-install 
+
+Need more information? Visit https://istio.io/docs/setup/kubernetes/install/ 
+"istio.io" has been added to your repositories
+Hang tight while we grab the latest from your chart repositories...
+...Skip local chart repository
+...Successfully got an update from the "istio.io" chart repository
+...Successfully got an update from the "stable" chart repository
+Update Complete.
+NAME:   istio-init
+LAST DEPLOYED: Thu Oct 24 16:22:22 2019
+NAMESPACE: istio-system
+STATUS: DEPLOYED
+
+RESOURCES:
+==> v1/ClusterRole
+NAME                     AGE
+istio-init-istio-system  1s
+
+==> v1/ClusterRoleBinding
+NAME                                        AGE
+istio-init-admin-role-binding-istio-system  1s
+
+==> v1/ConfigMap
+NAME          DATA  AGE
+istio-crd-10  1     1s
+istio-crd-11  1     1s
+istio-crd-12  1     1s
+
+==> v1/Job
+NAME                     COMPLETIONS  DURATION  AGE
+istio-init-crd-10-1.3.3  0/1          0s        0s
+istio-init-crd-11-1.3.3  0/1          0s        0s
+istio-init-crd-12-1.3.3  0/1          0s        0s
+
+==> v1/Pod(related)
+NAME                           READY  STATUS             RESTARTS  AGE
+istio-init-crd-10-1.3.3-tl8fc  0/1    ContainerCreating  0         0s
+istio-init-crd-11-1.3.3-vql5r  0/1    ContainerCreating  0         0s
+istio-init-crd-12-1.3.3-8g674  0/1    ContainerCreating  0         0s
+
+==> v1/ServiceAccount
+NAME                        SECRETS  AGE
+istio-init-service-account  1        1s
+
+
+Esperando 10 segundos mientras se crean los CRDs de Istio...
+Esperando 10 segundos mientras se crean los CRDs de Istio...
+Esperando 10 segundos mientras se crean los CRDs de Istio...
+NAME:   istio
+LAST DEPLOYED: Thu Oct 24 16:22:55 2019
+NAMESPACE: istio-system
+STATUS: DEPLOYED
+
+RESOURCES:
+==> v1/ClusterRole
+NAME                                 AGE
+istio-citadel-istio-system           15s
+istio-galley-istio-system            15s
+istio-mixer-istio-system             15s
+istio-pilot-istio-system             15s
+istio-reader                         15s
+istio-sidecar-injector-istio-system  15s
+kiali                                15s
+kiali-viewer                         15s
+
+==> v1/ClusterRoleBinding
+NAME                                                    AGE
+istio-citadel-istio-system                              15s
+istio-galley-admin-role-binding-istio-system            15s
+istio-kiali-admin-role-binding-istio-system             15s
+istio-mixer-admin-role-binding-istio-system             15s
+istio-multi                                             15s
+istio-pilot-istio-system                                15s
+istio-sidecar-injector-admin-role-binding-istio-system  15s
+
+==> v1/ConfigMap
+NAME                             DATA  AGE
+istio                            2     15s
+istio-galley-configuration       1     15s
+istio-security-custom-resources  2     15s
+istio-sidecar-injector           2     15s
+kiali                            1     15s
+
+==> v1/Deployment
+NAME                    READY  UP-TO-DATE  AVAILABLE  AGE
+istio-citadel           1/1    1           1          15s
+istio-galley            0/1    1           0          15s
+istio-pilot             0/1    1           0          15s
+istio-policy            0/1    1           0          15s
+istio-sidecar-injector  0/1    1           0          15s
+istio-telemetry         0/1    1           0          15s
+istio-tracing           0/1    1           0          15s
+kiali                   0/1    1           0          15s
+
+==> v1/Pod(related)
+NAME                                    READY  STATUS             RESTARTS  AGE
+istio-citadel-6cb95997f8-42jkl          1/1    Running            0         14s
+istio-galley-b877d99f4-cnsvp            0/1    ContainerCreating  0         15s
+istio-pilot-8764fffc7-gnmvx             0/2    ContainerCreating  0         14s
+istio-policy-7849456d88-npqk7           0/2    ContainerCreating  0         14s
+istio-sidecar-injector-6c65cfff5-gvhlz  0/1    ContainerCreating  0         14s
+istio-telemetry-7495569fc8-f2bnf        0/2    ContainerCreating  0         15s
+istio-tracing-8456d6548f-dqt4s          0/1    ContainerCreating  0         14s
+kiali-7dd44f7696-rw8jk                  0/1    Running            0         15s
+
+==> v1/Secret
+NAME   TYPE    DATA  AGE
+kiali  Opaque  2     15s
+
+==> v1/Service
+NAME                    TYPE       CLUSTER-IP     EXTERNAL-IP  PORT(S)                                 AGE
+istio-citadel           ClusterIP  10.47.255.236  <none>       8060/TCP,15014/TCP                      15s
+istio-galley            ClusterIP  10.47.252.52   <none>       443/TCP,15014/TCP,9901/TCP              15s
+istio-pilot             ClusterIP  10.47.240.139  <none>       15010/TCP,15011/TCP,8080/TCP,15014/TCP  15s
+istio-policy            ClusterIP  10.47.243.205  <none>       9091/TCP,15004/TCP,15014/TCP            15s
+istio-sidecar-injector  ClusterIP  10.47.252.99   <none>       443/TCP,15014/TCP                       15s
+istio-telemetry         ClusterIP  10.47.251.186  <none>       9091/TCP,15004/TCP,15014/TCP,42422/TCP  15s
+jaeger-agent            ClusterIP  None           <none>       5775/UDP,6831/UDP,6832/UDP              14s
+jaeger-collector        ClusterIP  10.47.242.144  <none>       14267/TCP,14268/TCP                     14s
+jaeger-query            ClusterIP  10.47.241.231  <none>       16686/TCP                               14s
+kiali                   ClusterIP  10.47.250.58   <none>       20001/TCP                               15s
+tracing                 ClusterIP  10.47.255.57   <none>       80/TCP                                  13s
+zipkin                  ClusterIP  10.47.255.238  <none>       9411/TCP                                14s
+
+==> v1/ServiceAccount
+NAME                                    SECRETS  AGE
+istio-citadel-service-account           1        15s
+istio-galley-service-account            1        15s
+istio-mixer-service-account             1        15s
+istio-multi                             1        15s
+istio-pilot-service-account             1        15s
+istio-security-post-install-account     1        15s
+istio-sidecar-injector-service-account  1        15s
+kiali-service-account                   1        15s
+
+==> v1alpha2/attributemanifest
+NAME        AGE
+istioproxy  13s
+kubernetes  13s
+
+==> v1alpha2/handler
+NAME           AGE
+kubernetesenv  13s
+prometheus     13s
+stdio          13s
+
+==> v1alpha2/instance
+NAME                  AGE
+accesslog             13s
+attributes            13s
+requestcount          13s
+requestduration       13s
+requestsize           13s
+responsesize          13s
+tcpaccesslog          13s
+tcpbytereceived       13s
+tcpbytesent           13s
+tcpconnectionsclosed  13s
+tcpconnectionsopened  13s
+
+==> v1alpha2/rule
+NAME                     AGE
+kubeattrgenrulerule      13s
+promhttp                 13s
+promtcp                  13s
+promtcpconnectionclosed  13s
+promtcpconnectionopen    13s
+stdio                    13s
+stdiotcp                 13s
+tcpkubeattrgenrulerule   13s
+
+==> v1alpha3/DestinationRule
+NAME             AGE
+istio-policy     14s
+istio-telemetry  14s
+
+==> v1beta1/ClusterRole
+NAME                                      AGE
+istio-security-post-install-istio-system  15s
+
+==> v1beta1/ClusterRoleBinding
+NAME                                                   AGE
+istio-security-post-install-role-binding-istio-system  15s
+
+==> v1beta1/MutatingWebhookConfiguration
+NAME                    AGE
+istio-sidecar-injector  13s
+
+==> v1beta1/PodDisruptionBudget
+NAME                    MIN AVAILABLE  MAX UNAVAILABLE  ALLOWED DISRUPTIONS  AGE
+istio-galley            1              N/A              0                    15s
+istio-pilot             1              N/A              0                    15s
+istio-policy            1              N/A              0                    15s
+istio-sidecar-injector  1              N/A              0                    15s
+istio-telemetry         1              N/A              0                    15s
+
+
+NOTES:
+Thank you for installing Istio.
+
+Your release is named Istio.
+
+To get started running application with Istio, execute the following steps:
+1. Label namespace that application object will be deployed to by the following command (take default namespace as an example)
+
+$ kubectl label namespace default istio-injection=enabled
+$ kubectl get namespace -L istio-injection
+
+2. Deploy your applications
+
+$ kubectl apply -f <your-application>.yaml
+
+For more information on running Istio, visit:
+https://istio.io/
+
+ingress.extensions/istio-system created
+servicemonitor.monitoring.coreos.com/istio-telemetry-servicemonitor created
+namespace/practica-netcore-counter created
+namespace/practica-netcore-counter labeled
+secret/redis created
+persistentvolumeclaim/redis-pv-claim created
+deployment.apps/redis created
+service/redis created
+deployment.apps/netcore-counter-redis created
+deployment.apps/netcore-counter-next created
+deployment.apps/netcore-counter-user created
+service/netcore-counter-redis created
+service/netcore-counter-next created
+service/netcore-counter-user created
+ingress.extensions/netcore-counter-user created
+servicemonitor.monitoring.coreos.com/netcore-counter-servicemonitor-redis created
+servicemonitor.monitoring.coreos.com/netcore-counter-servicemonitor-next created
+servicemonitor.monitoring.coreos.com/netcore-counter-servicemonitor-user created
+namespace/locust created
+configmap/locust-worker-configs created
+NAME:   locust
+LAST DEPLOYED: Thu Oct 24 16:23:20 2019
+NAMESPACE: locust
+STATUS: DEPLOYED
+
+RESOURCES:
+==> v1/Pod(related)
+NAME                            READY  STATUS             RESTARTS  AGE
+locust-master-548c6579d9-wc72x  0/1    ContainerCreating  0         1s
+locust-worker-58b449979c-2kxxl  0/1    ContainerCreating  0         1s
+locust-worker-58b449979c-jtnzh  0/1    ContainerCreating  0         1s
+
+==> v1/Service
+NAME               TYPE      CLUSTER-IP     EXTERNAL-IP  PORT(S)                                       AGE
+locust-master-svc  NodePort  10.47.251.207  <none>       8089:31170/TCP,5557:30795/TCP,5558:32333/TCP  1s
+
+==> v1beta1/Deployment
+NAME           READY  UP-TO-DATE  AVAILABLE  AGE
+locust-master  0/1    1           0          1s
+locust-worker  0/2    2           0          1s
+
+
+NOTES:
+locust installed!
+
+Get the Locust URL to visit by running these commands in the same shell:
+  export NODE_PORT=$(kubectl get svc -n locust locust-master-svc -o jsonpath='{.spec.ports[?(@.name=="master-web")].nodePort}')
+  export NODE_IP=$(kubectl get no -o jsonpath="{.items[0].status.addresses[0].address}")
+  export LOCUST_URL=http://$NODE_IP:$NODE_PORT/
+
+For more information on Distributed load testing on Kubernetes using Locust, visit:
+https://cloud.google.com/solutions/distributed-load-testing-using-kubernetes
+
+ingress.extensions/locust-ingress created

@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: nginx
+  name: locust-ingress
+spec:
+  rules:
+  - host: locust.0.0.0.0.nip.io
+    http:
+      paths:
+      - backend:
+          serviceName: locust-master-svc
+          servicePort: 8089
